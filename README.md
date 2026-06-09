@@ -1,4 +1,6 @@
 # Pearl Dental WordPress Child Theme
+<img width="1348" height="1121" alt="image" src="https://github.com/user-attachments/assets/465883ef-e2cd-4e88-add6-0f3e9eea4823" />
+
 
 A custom WordPress child theme built on the Kadence Theme framework using a traditional PHP template architecture. The homepage, landing pages, and custom layouts are rendered through PHP template files, while single blog posts leverage Kadence's native post templates and editor experience.
 
