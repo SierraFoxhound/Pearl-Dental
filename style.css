@@ -1,0 +1,595 @@
+/*
+Theme Name:         Pearl Dental
+Theme URI:          http://pearl-dental.local/
+Description:        Child theme for the Kadence parent theme, customized for Pearl Dental.
+Author:             David Soto
+Author URI:         https://jade-squirrel-e65147.netlify.app/
+Template:           kadence
+Version:            1.0.0
+Text Domain:        pearl-dental
+*/
+
+/* ==========================================================================
+   Your Custom Bootstrap & Hero Styles Go Below This Line
+   ========================================================================== */
+
+/* Custom properties for consistency */
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Bootstrap 5 Aligned)
+   ========================================================================== */
+
+/* 1. X-Small devices (Portrait Phones, less than 576px) */
+/* No media query needed here if you are writing "Mobile-First" CSS! */
+
+
+/* 2. Small devices (Landscape Phones, 576px and up) */
+@media (min-width: 576px) {
+     /* Custom styles for small screens go here */
+}
+
+
+/* 3. Medium devices (Tablets, 768px and up) */
+@media (min-width: 768px) {
+
+     /* Example: Tweak your custom grid padding or decrease hero text sizes */
+     .hero-section {
+          padding: 5rem 0;
+     }
+
+     /* Navbar spacing for contact button */
+     .pearl-nav {
+          padding-top: 20px;
+          padding-bottom: 20px;
+
+     }
+}
+
+
+/* 4. Large devices (Desktops/Laptops, 992px and up) */
+@media (min-width: 992px) {
+     /* Perfect for adjusting desktop header layouts or multi-column spacing */
+}
+
+
+/* 5. X-Large devices (Large Desktops, 1200px and up) */
+@media (min-width: 1200px) {
+     /* Custom styles for standard monitors */
+}
+
+
+/* 6. XX-Large devices (Larger Desktops/Ultra-wides, 1400px and up) */
+@media (min-width: 1400px) {
+     /* Prevent text layouts from stretching too wide on massive screens */
+}
+
+
+:root {
+     --bs-primary: #0ea5e9;
+     /* Bright medical blue */
+     --bs-primary-rgb: 14, 165, 233;
+     --bs-dark: #1e293b;
+     /* Clean slate dark */
+}
+
+html {
+     scroll-behavior: smooth;
+}
+
+body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     color: #334155;
+     background-color: #ffffff;
+}
+
+/* Custom Text and Utility alterations */
+.bg-primary-light {
+     background-color: rgba(14, 165, 233, 0.1) !important;
+}
+
+/* Nav Section mimic Bootstrap */
+.pearl-nav {
+     gap: 20px;
+
+}
+
+.pearl-nav .menu-item {
+     padding: 0 0.5rem;
+}
+
+.pearl-nav .menu-item a {
+     color: var(--bs-dark);
+     text-decoration: none;
+     transition: color 0.2s ease-in-out;
+}
+
+.pearl-nav .menu-item a:hover {
+     color: var(--bs-primary);
+}
+
+/* Handle dropdown logic seamlessly if you have nested items */
+.pearl-nav .menu-item-has-children {
+     position: relative;
+}
+
+.pearl-nav .menu-item-has-children>a::after {
+     content: " ▼";
+     font-size: 0.6rem;
+     vertical-align: middle;
+}
+
+.pearl-nav .sub-menu {
+     display: none;
+     position: absolute;
+     background: #ffffff;
+     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+     list-style: none;
+     padding: 1rem;
+     border-radius: 0.5rem;
+     min-width: 200px;
+}
+
+.pearl-nav .menu-item-has-children:hover .sub-menu {
+     display: block;
+}
+
+/* Hero Section Adjustments */
+.hero-section {
+     min-height: calc(100vh - 70px);
+     padding: 4rem 0;
+}
+
+/* Custom icon sizes and layouts */
+.icon-box {
+     width: 70px;
+     height: 70px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 50%;
+}
+
+.icon-box-small {
+     width: 35px;
+     height: 35px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: rgba(14, 165, 233, 0.1);
+     border-radius: 8px;
+     font-size: 0.9rem;
+}
+
+/* Cards Interactivity */
+.service-card {
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .085) !important;
+}
+
+/* Blog Section */
+
+/* Forces uniform image sizes on blog grids */
+.blog-card-img-wrap {
+     width: 100%;
+     height: 220px;
+     /* Adjust height up or down depending on your layout style preferences */
+     overflow: hidden;
+}
+
+.blog-card-img-wrap img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     /* Crops the image center so it never gets squished or stretched out of shape */
+     transition: transform 0.3s ease;
+}
+
+/* Hover zoom effect */
+.card:hover .blog-card-img-wrap img {
+     transform: scale(1.05);
+}
+
+/* Trustindex Styles Additions */
+.bg-success-light {
+     background-color: rgba(22, 163, 74, 0.1) !important;
+}
+
+.opacity-70 {
+     opacity: 0.7;
+}
+
+/* Review Card Specifics */
+#reviews .card {
+     background: #ffffff;
+     transition: transform 0.2s ease;
+}
+
+#reviews .card:hover {
+     transform: translateY(-2px);
+}
+
+/* Form refinement */
+.form-control:focus,
+.form-select:focus {
+     border-color: var(--bs-primary);
+     box-shadow: 0 0 0 0.25rem rgba(14, 165, 233, 0.15);
+}
+
+/* Custom Footer Interactive Components styling */
+.social-btn {
+     width: 38px;
+     height: 38px;
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #334155;
+     color: #cbd5e1;
+     border-radius: 50%;
+     text-decoration: none;
+     transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-btn:hover {
+     background-color: var(--bs-primary);
+     color: #ffffff;
+}
+
+/* Footer Zip Input Formatting */
+#footerZipRouterForm .max-width-xs {
+     max-width: 200px;
+}
+
+#footerZipRouterForm .form-control {
+     color: #ffffff !important;
+}
+
+#footerZipRouterForm .form-control::placeholder {
+     color: #64748b;
+     font-size: 0.8rem;
+}
+
+/* Custom interactive outline shift for the dark context field */
+#footerZipRouterForm .input-group:focus-within {
+     border-color: rgba(14, 165, 233, 0.6) !important;
+     box-shadow: 0 0 0 0.2rem rgba(14, 165, 233, 0.15);
+}
+
+/* Green Live Status Indicator Styles */
+.status-badge {
+     background-color: rgba(34, 197, 94, 0.15);
+     color: #4ade80;
+     font-size: 0.75rem;
+     font-weight: 700;
+     padding: 0.25rem 0.75rem;
+     border-radius: 50px;
+     text-transform: uppercase;
+     letter-spacing: 0.05em;
+     border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.status-dot-pulse {
+     width: 8px;
+     height: 8px;
+     background-color: #22c55e;
+     border-radius: 50%;
+     display: inline-block;
+     position: relative;
+}
+
+.status-dot-closed {
+     width: 8px;
+     height: 8px;
+     background-color: #ef4444;
+     border-radius: 50%;
+     display: inline-block;
+}
+
+/* Live pulse radiating effect ring */
+.status-dot-pulse::after {
+     content: '';
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     top: 0;
+     left: 0;
+     background-color: #22c55e;
+     border-radius: 50%;
+     animation: statusPulse 2s infinite ease-in-out;
+}
+
+@keyframes statusPulse {
+     0% {
+          transform: scale(1);
+          opacity: 1;
+     }
+
+     100% {
+          transform: scale(2.5);
+          opacity: 0;
+     }
+}
+
+/* Responsive constraints for the map embed layout box */
+.map-container {
+     height: 180px;
+     width: 100%;
+}
+
+.map-container iframe {
+     width: 100%;
+     height: 100%;
+}
+
+/*About Us Page */
+/* About Us Styles Additions */
+.max-width-md {
+     max-width: 600px;
+}
+
+.max-width-lg {
+     max-width: 800px;
+}
+
+.max-width-xs {
+     max-width: 280px;
+}
+
+.tracking-wider {
+     letter-spacing: 0.05em;
+}
+
+/* Team Cards Sizing */
+.team-img-wrap {
+     width: 100%;
+     height: 320px;
+     overflow: hidden;
+}
+
+.team-img-wrap img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: top center;
+}
+
+/* Timeline Custom Component Architecture */
+.timeline-container {
+     position: relative;
+     padding: 20px 0;
+}
+
+/* The structural center line */
+.timeline-container::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: 31px;
+     width: 2px;
+     background-color: #e2e8f0;
+}
+
+.timeline-item {
+     position: relative;
+     margin-bottom: 40px;
+     padding-left: 70px;
+}
+
+.timeline-badge {
+     position: absolute;
+     left: 12px;
+     top: 15px;
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 0.9rem;
+     z-index: 2;
+     border: 4px solid #ffffff;
+}
+
+.timeline-panel {
+     background: #ffffff;
+     position: relative;
+}
+
+/* Responsiveness tweaks for larger viewports to stagger the timeline rows */
+@media (min-width: 768px) {
+     .timeline-container::before {
+          left: 50%;
+          margin-left: -1px;
+     }
+
+     .timeline-item {
+          width: 50%;
+          padding-left: 0;
+     }
+
+     /* Alternating layout boxes left/right side */
+     .timeline-item:nth-child(even) {
+          margin-left: 50%;
+          padding-left: 40px;
+     }
+
+     .timeline-item:nth-child(odd) {
+          padding-right: 40px;
+          text-align: right;
+     }
+
+     .timeline-item:nth-child(even) .timeline-badge {
+          left: -20px;
+     }
+
+     .timeline-item:nth-child(odd) .timeline-badge {
+          right: -20px;
+          left: auto;
+     }
+}
+
+/* Services Page Styles */
+
+/* Services Page Layout Modifications */
+.service-page-card {
+     transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-page-card:hover {
+     transform: translateY(-4px);
+     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.06) !important;
+}
+
+.service-img-wrap {
+     width: 100%;
+     height: 200px;
+     overflow: hidden;
+}
+
+.service-img-wrap img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+}
+
+/* Accordion Specific Visual Resets */
+.accordion-button:not(.collapsed) {
+     background-color: rgba(14, 165, 233, 0.05);
+     color: var(--bs-primary);
+     box-shadow: none;
+}
+
+.accordion-button:focus {
+     box-shadow: none;
+     border-color: rgba(14, 165, 233, 0.2);
+}
+
+/* single service page styles */
+/* Single Service Page Components CSS */
+.step-num {
+     width: 36px;
+     height: 36px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1rem;
+     flex-shrink: 0;
+     box-shadow: 0 0.25rem 0.5rem rgba(14, 165, 233, 0.2);
+}
+
+.custom-sequence {
+     position: relative;
+}
+
+/* Connects sequence numbers with a subtle vertical path line */
+.sequence-step {
+     position: relative;
+}
+
+@media (min-width: 576px) {
+     .sequence-step:not(:last-child)::after {
+          content: '';
+          position: absolute;
+          top: 40px;
+          left: 18px;
+          bottom: -35px;
+          width: 1px;
+          background-color: #cbd5e1;
+          border-style: dashed;
+     }
+}
+
+/* Blog page style */
+
+/* Blog Page Architecture Additions */
+.blog-page-card {
+     transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blog-page-card:hover {
+     transform: translateY(-4px);
+     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.08) !important;
+}
+
+.blog-img-wrap {
+     width: 100%;
+     height: 220px;
+     overflow: hidden;
+}
+
+.blog-img-wrap img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.4s ease;
+}
+
+.blog-page-card:hover .blog-img-wrap img {
+     transform: scale(1.04);
+}
+
+.card-title-link {
+     transition: color 0.15s ease;
+}
+
+.card-title-link:hover {
+     color: var(--bs-primary) !important;
+}
+
+/* Author Avatar Circles */
+.author-avatar {
+     width: 32px;
+     height: 32px;
+     font-size: 0.75rem;
+     letter-spacing: -0.02em;
+     background-color: #64748b !important;
+}
+
+/* Sidebar Categories Hover Rules */
+.category-link {
+     transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+.category-link:hover {
+     color: var(--bs-primary) !important;
+     padding-left: 4px;
+}
+
+.bg-secondary-light {
+     background-color: rgba(100, 116, 139, 0.1);
+}
+
+/* Custom Pagination Active Accent overrides */
+.pagination .page-item.active .page-link {
+     background-color: var(--bs-primary);
+     border-color: var(--bs-primary);
+}
+
+.pagination .page-link {
+     color: #475569;
+}
+
+/* Contact Page Visual Enhancements */
+.contact-hover-link {
+     transition: color 0.15s ease;
+}
+
+.contact-hover-link:hover {
+     color: var(--bs-primary) !important;
+}
+
+/* Form Fields Interactive Styling Focus States */
+#contactPracticeForm .form-control:focus,
+#contactPracticeForm .form-select:focus {
+     border-color: rgba(14, 165, 233, 0.4);
+     box-shadow: 0 0 0 0.25rem rgba(14, 165, 233, 0.15);
+}
+
+#contactPracticeForm .form-label {
+     letter-spacing: 0.02em;
+}
